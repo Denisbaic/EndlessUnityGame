@@ -6,7 +6,6 @@ using System.IO;
 
 public class SaveManager : MonoBehaviour {
 
-   // public ShopManager SM;
     public GameManager GM;
 
     string filePath;

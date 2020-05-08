@@ -19,14 +19,6 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    //public void RefreshSoundState()
-    //{
-    //    if (GM.IsSound)
-    //        BGAS.UnPause();
-    //    else
-    //        BGAS.Pause();
-    //}
-
     public void PlayCoinEffect()
     {
         if (GM.IsSound)

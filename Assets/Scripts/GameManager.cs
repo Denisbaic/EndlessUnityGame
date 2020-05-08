@@ -50,9 +50,6 @@ public class GameManager : MonoBehaviour {
     {
         if (CanPlay)
         {
-            //if (Input.GetKeyDown(KeyCode.Escape))
-            //    PMC.Pause();
-
             Points += PointsBaseValue * PointsMultiplier * PowerUpMultiplier * Time.deltaTime;
 
             PointsMultiplier += .05f * Time.deltaTime;
