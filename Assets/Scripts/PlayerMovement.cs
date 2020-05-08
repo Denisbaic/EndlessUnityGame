@@ -211,15 +211,4 @@ public class PlayerMovement : MonoBehaviour {
         transform.position = startPosition;
         laneNumber = 1;
     }
-
-    public void ImmortalityOn()
-    {
-        isImmortal = true;
-    }
-
-    public void ImmortalityOff()
-    {
-        isImmortal = false;
-    }
-
 }

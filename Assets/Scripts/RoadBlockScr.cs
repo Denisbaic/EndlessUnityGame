@@ -27,15 +27,4 @@ public class RoadBlockScr : MonoBehaviour {
             transform.Translate(moveVec * Time.deltaTime * GM.CurrentMoveSpeed);
 	}
 
-    void CoinsEvent(bool activate)
-    {
-        if (activate)
-        {
-            CoinsObj.SetActive(true);
-            return;
-        }
-
-        if (!coinsSpawn)
-            CoinsObj.SetActive(false);
-    }
 }
