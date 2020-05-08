@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-    public PauseMenuController PMC;
+   // public PauseMenuController PMC;
     public GameObject ResultObj;
     public PlayerMovement PM;
     public RoadSpawner RS;
@@ -50,8 +50,8 @@ public class GameManager : MonoBehaviour {
     {
         if (CanPlay)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-                PMC.Pause();
+            //if (Input.GetKeyDown(KeyCode.Escape))
+            //    PMC.Pause();
 
             Points += PointsBaseValue * PointsMultiplier * PowerUpMultiplier * Time.deltaTime;
 
