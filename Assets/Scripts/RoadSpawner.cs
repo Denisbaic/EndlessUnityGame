@@ -10,12 +10,12 @@ public class RoadSpawner : MonoBehaviour {
     float startBlockXPos;
     int blocksCount = 7;
     float blockLength = 0;
-    int safeZone = 50;
+    //int safeZone = 50;
 
     public Transform PlayerTransf;
     List<GameObject> CurrentBlocks = new List<GameObject>();
 
-    Vector3 startPlayerPos;
+    //Vector3 startPlayerPos;
 
 	void Start ()
     {

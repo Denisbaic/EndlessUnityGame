@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public PowerUpController PUController;
+    //public PowerUpController PUController;
     public Animator SkinAnimator;
     public GameManager GM;
     CapsuleCollider selfCollider;
     Rigidbody rb;
 
-    public delegate void OnPowerupUse(PowerUpController.PowerUp.Type type);
-    public static event OnPowerupUse PowerUpUseEvent;
+   // public delegate void OnPowerupUse(PowerUpController.PowerUp.Type type);
+   // public static event OnPowerupUse PowerUpUseEvent;
 
     public float JumpSpeed = 12;
 
@@ -186,17 +186,17 @@ public class PlayerMovement : MonoBehaviour {
                 AudioManager.Instance.PlayCoinEffect();
                 break;
 
-            case "MultiPU":
-                PowerUpUseEvent(PowerUpController.PowerUp.Type.MUILTIPLIER);
-                break;
+            //case "MultiPU":
+            //    PowerUpUseEvent(PowerUpController.PowerUp.Type.MUILTIPLIER);
+            //    break;
 
-            case "ImmortalPU":
-                PowerUpUseEvent(PowerUpController.PowerUp.Type.IMMORTALITY);
-                break;
+            //case "ImmortalPU":
+            //    PowerUpUseEvent(PowerUpController.PowerUp.Type.IMMORTALITY);
+            //    break;
 
-            case "CoinsSpawnPU":
-                PowerUpUseEvent(PowerUpController.PowerUp.Type.COINS_SPAWN);
-                break;
+            //case "CoinsSpawnPU":
+            //    PowerUpUseEvent(PowerUpController.PowerUp.Type.COINS_SPAWN);
+            //    break;
 
             default: return;
         }
@@ -207,7 +207,7 @@ public class PlayerMovement : MonoBehaviour {
     IEnumerator Death()
     {
         GM.CanPlay = false;
-        PUController.ResetAllPowerUps();
+        //PUController.ResetAllPowerUps();
 
         SkinAnimator.SetTrigger("death");
 

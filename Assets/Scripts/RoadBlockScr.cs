@@ -17,7 +17,7 @@ public class RoadBlockScr : MonoBehaviour {
 
 	void Start ()
     {
-        PowerUpController.CoinsPowerUpEvent += CoinsEvent;
+        //PowerUpController.CoinsPowerUpEvent += CoinsEvent;
 
         GM = FindObjectOfType<GameManager>();
         moveVec = new Vector3(-1, 0, 0);
@@ -48,8 +48,8 @@ public class RoadBlockScr : MonoBehaviour {
             CoinsObj.SetActive(false);
     }
 
-    private void OnDestroy()
-    {
-        PowerUpController.CoinsPowerUpEvent -= CoinsEvent;
-    }
+    //private void OnDestroy()
+    //{
+    //    PowerUpController.CoinsPowerUpEvent -= CoinsEvent;
+    //}
 }
