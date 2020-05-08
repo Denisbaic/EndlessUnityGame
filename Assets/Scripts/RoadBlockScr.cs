@@ -11,9 +11,9 @@ public class RoadBlockScr : MonoBehaviour {
 
     public int CoinChance;
     bool coinsSpawn;
-    bool powerUpSpawn;
+    //bool powerUpSpawn;
 
-    public List<GameObject> PowerUps;
+   // public List<GameObject> PowerUps;
 
 	void Start ()
     {
@@ -25,9 +25,9 @@ public class RoadBlockScr : MonoBehaviour {
         coinsSpawn = Random.Range(0, 101) <= CoinChance;
         CoinsObj.SetActive(coinsSpawn);
 
-        powerUpSpawn = Random.Range(0, 101) <= 10 && !coinsSpawn;
-        if (powerUpSpawn)
-            PowerUps[Random.Range(0, PowerUps.Count)].SetActive(true);
+       // powerUpSpawn = Random.Range(0, 101) <= 10 && !coinsSpawn;
+        //if (powerUpSpawn)
+            //PowerUps[Random.Range(0, PowerUps.Count)].SetActive(true);
     }
 	
 	void Update ()
