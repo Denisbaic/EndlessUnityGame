@@ -21,9 +21,7 @@ public class GameManager : MonoBehaviour {
     public bool IsSound = true;
 
     public float BaseMoveSpeed, CurrentMoveSpeed;
-    public float PointsBaseValue, PointsMultiplier, PowerUpMultiplier;
-
-    //public List<Skin> Skins;
+    public float PointsBaseValue, PointsMultiplier;// PowerUpMultiplier;
 
     public void StartGame()
     {
@@ -37,7 +35,7 @@ public class GameManager : MonoBehaviour {
 
         CurrentMoveSpeed = BaseMoveSpeed;
         PointsMultiplier = 1;
-        PowerUpMultiplier = 1;
+        //PowerUpMultiplier = 1;
         Points = 0;
 
         Show(DistanceImage);
@@ -72,7 +70,7 @@ public class GameManager : MonoBehaviour {
     {
         if (CanPlay)
         {
-            Points += PointsBaseValue * PointsMultiplier * PowerUpMultiplier * Time.deltaTime;
+            Points += PointsBaseValue * PointsMultiplier * Time.deltaTime; //* PowerUpMultiplier;
 
             PointsMultiplier += .05f * Time.deltaTime;
             PointsMultiplier = Mathf.Clamp(PointsMultiplier, 1, 10);

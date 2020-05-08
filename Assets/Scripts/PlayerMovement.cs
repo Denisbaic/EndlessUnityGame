@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-
     public Animator SkinAnimator;
     public GameManager GM;
     CapsuleCollider selfCollider;
