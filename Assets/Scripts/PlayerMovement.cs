@@ -65,8 +65,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         GameManager.Show(GM.DistanceImage); 
         GameManager.Show(GM.CoinImage);
-       //GM.DistanceImage.enabled = true;
-        //GM.CoinImage.enabled = true;
+
         rb.isKinematic = false;
         rb.velocity = rbVelocity;
         SkinAnimator.speed = 1;

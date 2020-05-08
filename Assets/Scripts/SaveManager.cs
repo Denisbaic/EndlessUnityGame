@@ -36,8 +36,6 @@ public class SaveManager : MonoBehaviour {
 
         Save save = new Save();
         save.Coins = GM.Coins;
-        //save.ActiveSkinIndex = (int)SM.ActiveSkin;
-        //save.SaveBoughtItems(SM.Items);
 
         bf.Serialize(fs, save);
         fs.Close();
@@ -54,15 +52,10 @@ public class SaveManager : MonoBehaviour {
         Save save = (Save)bf.Deserialize(fs);
 
         GM.Coins = save.Coins;
-        //SM.ActiveSkin = (ShopItem.ItemType)save.ActiveSkinIndex;
-
-        //for (int i = 0; i < save.BoughtItems.Count; i++)
-            //SM.Items[i].IsBought = save.BoughtItems[i];
 
         fs.Close();
 
         GM.RefreshText();
-        //GM.ActivateSkin((int)SM.ActiveSkin);
     }
 
 }
@@ -74,9 +67,4 @@ public class Save
     public int ActiveSkinIndex;
     public List<bool> BoughtItems = new List<bool>();
 
-   // public void SaveBoughtItems(List<ShopItem> items)
-   // {
-   //    foreach (var item in items)
-   //         BoughtItems.Add(item.IsBought);
-   // }
 }

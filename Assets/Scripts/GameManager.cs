@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-
-   // public PauseMenuController PMC;
     public GameObject ResultObj;
     public PlayerMovement PM;
     public RoadSpawner RS;
@@ -14,8 +12,6 @@ public class GameManager : MonoBehaviour {
                 CoinsTxt;
 
     public Image DistanceImage, CoinImage;
-
-
 
     float Points;
 
@@ -104,7 +100,4 @@ public class GameManager : MonoBehaviour {
     {
         CoinsTxt.text = Coins.ToString();
     }
-
-
-
 }
