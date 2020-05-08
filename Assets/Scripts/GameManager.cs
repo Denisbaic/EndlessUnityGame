@@ -105,16 +105,6 @@ public class GameManager : MonoBehaviour {
         CoinsTxt.text = Coins.ToString();
     }
 
-    public void ActivateSkin(int skinIndex, bool setTrigger = false)
-    {
-        foreach (var skin in Skins)
-            skin.HideSkin();
 
-        Skins[skinIndex].ShowSkin();
-        PM.SkinAnimator = Skins[skinIndex].AC;
-
-        if (setTrigger)
-            PM.SkinAnimator.SetTrigger("death");
-    }
 
 }
