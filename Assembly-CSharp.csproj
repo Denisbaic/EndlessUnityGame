@@ -71,7 +71,6 @@
     <Compile Include="Assets\Scripts\RoadBlockScr.cs" />
     <Compile Include="Assets\Scripts\RoadSpawner.cs" />
     <Compile Include="Assets\Scripts\SaveManager.cs" />
-    <Compile Include="Assets\Scripts\Skin.cs" />
     <Compile Include="Assets\Scripts\SwipeController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Unity Projects/3DRunnerOnUnity/3DEndlessRunner/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

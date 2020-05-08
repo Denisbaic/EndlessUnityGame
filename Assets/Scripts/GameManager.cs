@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     public float BaseMoveSpeed, CurrentMoveSpeed;
     public float PointsBaseValue, PointsMultiplier, PowerUpMultiplier;
 
-    public List<Skin> Skins;
+    //public List<Skin> Skins;
 
     public void StartGame()
     {
