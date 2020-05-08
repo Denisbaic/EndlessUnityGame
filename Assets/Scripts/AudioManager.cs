@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     public GameManager GM;
 
-    public AudioSource BGAS, EffectAS;
+    public AudioSource EffectAS;
     public AudioClip CoinSnd;
 
     private void Awake()
@@ -19,13 +19,13 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void RefreshSoundState()
-    {
-        if (GM.IsSound)
-            BGAS.UnPause();
-        else
-            BGAS.Pause();
-    }
+    //public void RefreshSoundState()
+    //{
+    //    if (GM.IsSound)
+    //        BGAS.UnPause();
+    //    else
+    //        BGAS.Pause();
+    //}
 
     public void PlayCoinEffect()
     {
