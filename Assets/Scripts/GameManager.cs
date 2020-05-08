@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour {
 
     public Text PointsTxt,
                 CoinsTxt;
+
+    public Image DistanceImage, CoinImage;
+
+
+
     float Points;
 
     public int Coins = 0;
@@ -38,8 +43,29 @@ public class GameManager : MonoBehaviour {
         PointsMultiplier = 1;
         PowerUpMultiplier = 1;
         Points = 0;
+
+        Show(DistanceImage);
+        Show(CoinImage);
     }
 
+    public static void Hide(Image img)
+    {
+        CanvasGroup cnvGroup = img.GetComponent<CanvasGroup>();
+        if (cnvGroup != null)
+        {
+            cnvGroup.alpha = 0f;
+            cnvGroup.blocksRaycasts = false; 
+        }
+    }
+    public static void Show(Image img)
+    {
+        CanvasGroup cnvGroup = img.GetComponent<CanvasGroup>();
+        if (cnvGroup != null)
+        {
+            cnvGroup.alpha = 1f; 
+            cnvGroup.blocksRaycasts = true; 
+        }
+    }
     IEnumerator FixTrigger()
     {
         yield return null;

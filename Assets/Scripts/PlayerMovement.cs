@@ -52,6 +52,10 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Pause()
     {
+        GameManager.Hide(GM.DistanceImage); 
+        GameManager.Hide(GM.CoinImage);
+        GM.CoinImage.enabled = false;
+
         rbVelocity = rb.velocity;
         rb.isKinematic = true;
         SkinAnimator.speed = 0;
@@ -59,6 +63,10 @@ public class PlayerMovement : MonoBehaviour {
 
     public void UnPause()
     {
+        GameManager.Show(GM.DistanceImage); 
+        GameManager.Show(GM.CoinImage);
+       //GM.DistanceImage.enabled = true;
+        //GM.CoinImage.enabled = true;
         rb.isKinematic = false;
         rb.velocity = rbVelocity;
         SkinAnimator.speed = 1;
@@ -67,7 +75,7 @@ public class PlayerMovement : MonoBehaviour {
     private void FixedUpdate()
     {
         rb.AddForce(new Vector3(0, Physics.gravity.y * 4, 0), ForceMode.Acceleration);
-
+        
         if (wannaJump && isGrounded())
         {
             SkinAnimator.SetTrigger("jumping");
