@@ -7,9 +7,7 @@ using System.IO;
 public class SaveManager : MonoBehaviour {
 
     public GameManager GM;
-
     string filePath;
-
     public static SaveManager Instance;
 
     private void Awake()
@@ -64,7 +62,4 @@ public class SaveManager : MonoBehaviour {
 public class Save
 {
     public int Coins;
-    public int ActiveSkinIndex;
-    public List<bool> BoughtItems = new List<bool>();
-
 }

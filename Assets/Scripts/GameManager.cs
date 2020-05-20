@@ -8,36 +8,18 @@ public class GameManager : MonoBehaviour {
     public PlayerMovement PM;
     public RoadSpawner RS;
 
-    public Text PointsTxt,
+    public Text DistanceTxt,
                 CoinsTxt;
-
-    //public Text Speed;
-
+    
     public Image DistanceImage, CoinImage;
 
-    float Points;
-
+    float Distance;
     public int Coins = 0;
 
     public bool CanPlay = true;
     public bool IsSound = true;
 
     public float BaseMoveSpeed;
-    //public float CurrentMoveSpeed;
-
-    public float MinSpeed=-5;
-    
-    public float MaxSpeed = 100;
-    //public float PointsBaseValue, PointsMultiplier;// PowerUpMultiplier;
-
-    public void ChangeSpeedToMin()
-    {
-        BaseMoveSpeed = MinSpeed;
-    }
-    public void ChangeSpeedToMax()
-    {
-        BaseMoveSpeed = MaxSpeed;
-    }
 
     public void StartGame()
     {
@@ -49,9 +31,7 @@ public class GameManager : MonoBehaviour {
         PM.SkinAnimator.SetTrigger("respawn");
         StartCoroutine(FixTrigger());
 
-        //CurrentMoveSpeed = BaseMoveSpeed;
-        Points = 0;
-
+        Distance = 0;
         Show(DistanceImage);
         Show(CoinImage);
     }
@@ -84,11 +64,10 @@ public class GameManager : MonoBehaviour {
     {
         if (CanPlay)
         {
-            Points += BaseMoveSpeed * Time.deltaTime;
-
+            Distance += BaseMoveSpeed * Time.deltaTime;
         }
 
-        PointsTxt.text = ((int)Points).ToString();
+        DistanceTxt.text = ((int)Distance).ToString();
     }
 
     public void ShowResult()
