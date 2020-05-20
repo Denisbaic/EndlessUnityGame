@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour {
     public PlayerMovement PM;
     public RoadSpawner RS;
 
-    public Text DistanceTxt,
+    public Text SpeedTxt,
                 CoinsTxt;
     
-    public Image DistanceImage, CoinImage;
+    public Image SpeedImage, CoinImage;
 
-    float Distance;
+    float Speed;
     public int Coins = 0;
 
     public bool CanPlay = true;
@@ -31,9 +31,10 @@ public class GameManager : MonoBehaviour {
         PM.SkinAnimator.SetTrigger("respawn");
         StartCoroutine(FixTrigger());
 
-        Distance = 0;
-        Show(DistanceImage);
+        Speed = 0;
+        Show(SpeedImage);
         Show(CoinImage);
+        SpeedTxt.text = ((int)BaseMoveSpeed).ToString();
     }
 
     public static void Hide(Image img)
@@ -64,10 +65,10 @@ public class GameManager : MonoBehaviour {
     {
         if (CanPlay)
         {
-            Distance += BaseMoveSpeed * Time.deltaTime;
+            Speed += BaseMoveSpeed * Time.deltaTime;
         }
 
-        DistanceTxt.text = ((int)Distance).ToString();
+        
     }
 
     public void ShowResult()

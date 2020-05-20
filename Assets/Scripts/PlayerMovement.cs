@@ -35,8 +35,8 @@ public class PlayerMovement : MonoBehaviour {
         var fieldID = AndroidJNI.GetStaticFieldID(clazz, "beats_amount", "I");
         var beats = AndroidJNI.GetStaticIntField(clazz, fieldID);
 
-        GM.BaseMoveSpeed = Mathf.Clamp((float)beats / (float)60 * 10.0F, 4.0F, 20.0F);
-
+        GM.BaseMoveSpeed = 25.0f - Mathf.Clamp((float)beats / (float)60 * 10.0F, 4.0F, 20.0F);
+        GM.SpeedTxt.text = ((int)GM.BaseMoveSpeed).ToString();
 
         selfCollider = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
@@ -51,8 +51,9 @@ public class PlayerMovement : MonoBehaviour {
         var fieldID = AndroidJNI.GetStaticFieldID(clazz, "beats_amount", "I");
         var beats = AndroidJNI.GetStaticIntField(clazz, fieldID);
 
-        GM.BaseMoveSpeed = Mathf.Clamp((float)beats / (float)60 * 10.0F, 4.0F, 20.0F);
+        GM.BaseMoveSpeed = 25.0f-Mathf.Clamp((float)beats / (float)60 * 10.0F, 4.0F, 20.0F);
 
+        GM.SpeedTxt.text = ((int)GM.BaseMoveSpeed).ToString();
         StopAllCoroutines();
         isRolling = false;
         wannaJump = false;
@@ -61,7 +62,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Pause()
     {
-        GameManager.Hide(GM.DistanceImage); 
+        GameManager.Hide(GM.SpeedImage); 
         GameManager.Hide(GM.CoinImage);
         GM.CoinImage.enabled = false;
 
@@ -72,7 +73,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public void UnPause()
     {
-        GameManager.Show(GM.DistanceImage); 
+        GameManager.Show(GM.SpeedImage); 
         GameManager.Show(GM.CoinImage);
 
         rb.isKinematic = false;
@@ -137,7 +138,7 @@ public class PlayerMovement : MonoBehaviour {
 
     IEnumerator DoRoll()
     {
-        float rollDuration = 1.5f;
+        float rollDuration = 1.2f;
         float cdDuration = .3f;
 
         isRolling = true;
