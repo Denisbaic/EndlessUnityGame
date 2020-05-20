@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
     public Text PointsTxt,
                 CoinsTxt;
 
+    //public Text Speed;
+
     public Image DistanceImage, CoinImage;
 
     float Points;
@@ -20,8 +22,22 @@ public class GameManager : MonoBehaviour {
     public bool CanPlay = true;
     public bool IsSound = true;
 
-    public float BaseMoveSpeed, CurrentMoveSpeed;
-    public float PointsBaseValue, PointsMultiplier;// PowerUpMultiplier;
+    public float BaseMoveSpeed;
+    public float CurrentMoveSpeed;
+
+    public float MinSpeed=-5;
+    
+    public float MaxSpeed = 100;
+    //public float PointsBaseValue, PointsMultiplier;// PowerUpMultiplier;
+
+    public void ChangeSpeedToMin()
+    {
+        BaseMoveSpeed = MinSpeed;
+    }
+    public void ChangeSpeedToMax()
+    {
+        BaseMoveSpeed = MaxSpeed;
+    }
 
     public void StartGame()
     {
@@ -34,8 +50,7 @@ public class GameManager : MonoBehaviour {
         StartCoroutine(FixTrigger());
 
         CurrentMoveSpeed = BaseMoveSpeed;
-        PointsMultiplier = 1;
-        //PowerUpMultiplier = 1;
+        //PointsMultiplier = 1;
         Points = 0;
 
         Show(DistanceImage);
@@ -70,16 +85,18 @@ public class GameManager : MonoBehaviour {
     {
         if (CanPlay)
         {
-            Points += PointsBaseValue * PointsMultiplier * Time.deltaTime; //* PowerUpMultiplier;
+            Points += BaseMoveSpeed * Time.deltaTime; //* PowerUpMultiplier;
 
-            PointsMultiplier += .05f * Time.deltaTime;
-            PointsMultiplier = Mathf.Clamp(PointsMultiplier, 1, 10);
+           //PointsMultiplier += BaseMoveSpeed * Time.deltaTime;
+           //PointsMultiplier = Mathf.Clamp(PointsMultiplier, 1, 10);
 
-            CurrentMoveSpeed += .1f * Time.deltaTime;
-            CurrentMoveSpeed = Mathf.Clamp(CurrentMoveSpeed, 1, 20);
+            //CurrentMoveSpeed += .1f * Time.deltaTime;
+            //CurrentMoveSpeed = Mathf.Clamp(CurrentMoveSpeed, 1, 20);
         }
 
         PointsTxt.text = ((int)Points).ToString();
+
+        //Speed.text = CurrentMoveSpeed.ToString();
     }
 
     public void ShowResult()

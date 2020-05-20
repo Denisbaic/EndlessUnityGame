@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
@@ -33,6 +32,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start ()
     {
+        var clazz = AndroidJNI.FindClass("com.unity3d.player.HeartRateMonitor");
+        var fieldID = AndroidJNI.GetStaticFieldID(clazz, "beats_amount", "I");
+        var beats = AndroidJNI.GetStaticIntField(clazz, fieldID);
+
+        GM.BaseMoveSpeed = Mathf.Clamp((float)beats / (float)60 * 10.0F, 4.0F, 20.0F);
+
+
         selfCollider = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
 
@@ -42,8 +48,14 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Respawn()
     {
+        var clazz = AndroidJNI.FindClass("com.unity3d.player.HeartRateMonitor");
+        var fieldID = AndroidJNI.GetStaticFieldID(clazz, "beats_amount", "I");
+        var beats = AndroidJNI.GetStaticIntField(clazz, fieldID);
+
+        GM.BaseMoveSpeed = Mathf.Clamp((float)beats / (float)60 * 10.0F, 4.0F, 20.0F);
+
         StopAllCoroutines();
-        isImmortal = false;
+        //isImmortal = false;
         isRolling = false;
         wannaJump = false;
         StopRolling();
@@ -170,11 +182,11 @@ public class PlayerMovement : MonoBehaviour {
              !GM.CanPlay)
             return;
 
-        if (isImmortal && !collision.gameObject.CompareTag("DeathPlane"))
-        {
-            collision.collider.isTrigger = true;
-            return;
-        }
+        //if (isImmortal && !collision.gameObject.CompareTag("DeathPlane"))
+        //{
+        //    collision.collider.isTrigger = true;
+        //    return;
+        //}
 
         StartCoroutine(Death());
     }
@@ -204,6 +216,9 @@ public class PlayerMovement : MonoBehaviour {
 
         SkinAnimator.ResetTrigger("death");
         GM.ShowResult();
+        AndroidJavaClass objectJavaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject javaObject = objectJavaClass.GetStatic<AndroidJavaObject>("currentActivity");
+        javaObject.Call("Transition");
     }
 
     public void ResetPosition()
