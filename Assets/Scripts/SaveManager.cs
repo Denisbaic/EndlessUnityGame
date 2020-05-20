@@ -19,7 +19,6 @@ public class SaveManager : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
-
         GM = FindObjectOfType<GameManager>();
         filePath = Application.persistentDataPath + "data.gamesave";
 
