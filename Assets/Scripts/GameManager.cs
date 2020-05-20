@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     public bool IsSound = true;
 
     public float BaseMoveSpeed;
-    public float CurrentMoveSpeed;
+    //public float CurrentMoveSpeed;
 
     public float MinSpeed=-5;
     
@@ -49,8 +49,7 @@ public class GameManager : MonoBehaviour {
         PM.SkinAnimator.SetTrigger("respawn");
         StartCoroutine(FixTrigger());
 
-        CurrentMoveSpeed = BaseMoveSpeed;
-        //PointsMultiplier = 1;
+        //CurrentMoveSpeed = BaseMoveSpeed;
         Points = 0;
 
         Show(DistanceImage);
@@ -85,18 +84,11 @@ public class GameManager : MonoBehaviour {
     {
         if (CanPlay)
         {
-            Points += BaseMoveSpeed * Time.deltaTime; //* PowerUpMultiplier;
+            Points += BaseMoveSpeed * Time.deltaTime;
 
-           //PointsMultiplier += BaseMoveSpeed * Time.deltaTime;
-           //PointsMultiplier = Mathf.Clamp(PointsMultiplier, 1, 10);
-
-            //CurrentMoveSpeed += .1f * Time.deltaTime;
-            //CurrentMoveSpeed = Mathf.Clamp(CurrentMoveSpeed, 1, 20);
         }
 
         PointsTxt.text = ((int)Points).ToString();
-
-        //Speed.text = CurrentMoveSpeed.ToString();
     }
 
     public void ShowResult()

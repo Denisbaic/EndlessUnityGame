@@ -31,7 +31,10 @@ public class RoadSpawner : MonoBehaviour {
             Destroy(go);
 
         CurrentBlocks.Clear();
-
+        if (StartBlock != null)
+        {
+            SpawnBlock(StartBlock);
+        }
         for (int i = 0; i < blocksCount; i++)
             SpawnBlock();
     }
@@ -64,6 +67,22 @@ public class RoadSpawner : MonoBehaviour {
 
         CurrentBlocks.Add(block);
     }
+
+    void SpawnBlock(GameObject _block)
+    {
+        GameObject block = Instantiate(_block, transform);
+        Vector3 blockPos;
+
+        if (CurrentBlocks.Count > 0)
+            blockPos = CurrentBlocks[CurrentBlocks.Count - 1].transform.position + new Vector3(blockLength, 0, 0);
+        else
+            blockPos = new Vector3(startBlockXPos, 0, 0);
+
+        block.transform.position = blockPos;
+
+        CurrentBlocks.Add(block);
+    }
+
 
     void DestroyBlock()
     {

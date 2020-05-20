@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour {
                  SideSpeed;
 
     bool isRolling = false;
-    bool isImmortal = false;
 
     Vector3 ccCenterNorm = new Vector3(0, .96f, 0),
             ccCenterRoll = new Vector3(0, .4f, .85f);
@@ -55,7 +54,6 @@ public class PlayerMovement : MonoBehaviour {
         GM.BaseMoveSpeed = Mathf.Clamp((float)beats / (float)60 * 10.0F, 4.0F, 20.0F);
 
         StopAllCoroutines();
-        //isImmortal = false;
         isRolling = false;
         wannaJump = false;
         StopRolling();
@@ -181,12 +179,6 @@ public class PlayerMovement : MonoBehaviour {
              !collision.gameObject.CompareTag("DeathPlane")) || 
              !GM.CanPlay)
             return;
-
-        //if (isImmortal && !collision.gameObject.CompareTag("DeathPlane"))
-        //{
-        //    collision.collider.isTrigger = true;
-        //    return;
-        //}
 
         StartCoroutine(Death());
     }
