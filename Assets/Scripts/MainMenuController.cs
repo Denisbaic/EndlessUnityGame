@@ -9,12 +9,7 @@ public class MainMenuController : MonoBehaviour
         gameObject.SetActive(false);
         GM.StartGame();
     }
-
-    public void OpenMenu()
-    {
-        gameObject.SetActive(true);
-    }
-
+    
     public void QuitBtn()
     {
         Application.Quit();

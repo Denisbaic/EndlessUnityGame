@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +12,7 @@ public class GameManager : MonoBehaviour {
     
     public Image SpeedImage, CoinImage;
 
-    float Speed;
-    public int Coins = 0;
+    public int Coins;
 
     public bool CanPlay = true;
     public bool IsSound = true;
@@ -31,7 +29,6 @@ public class GameManager : MonoBehaviour {
         PM.SkinAnimator.SetTrigger("respawn");
         StartCoroutine(FixTrigger());
 
-        Speed = 0;
         Show(SpeedImage);
         Show(CoinImage);
         SpeedTxt.text = ((int)BaseMoveSpeed).ToString();
@@ -61,15 +58,6 @@ public class GameManager : MonoBehaviour {
         PM.SkinAnimator.ResetTrigger("respawn");
     }
 
-    private void Update()
-    {
-        if (CanPlay)
-        {
-            Speed += BaseMoveSpeed * Time.deltaTime;
-        }
-
-        
-    }
 
     public void ShowResult()
     {
